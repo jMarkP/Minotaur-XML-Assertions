@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
+using NUnit.Framework;
 
 namespace MinotaurLib
 {
@@ -13,9 +14,9 @@ namespace MinotaurLib
         {
             string message = string.Empty;
 
-            if (!CompareXmlNodes(actual.Root, expected.Root, ref message))
+            if (!XmlDeepComparer.DeepCompareXmlContent(actual, expected, null))
             {
-                // TODO
+                throw new AssertionException("XML Documents should be equal");
             }
         }
 

@@ -55,19 +55,27 @@ namespace MinotaurSpecs.StepDefinitions
             }
             catch(Exception ex)
             {
-                ScenarioContext.Current.Add("ShouldBeEquivalentTo_Exception", ex);
+                ScenarioContext.Current.Add("exception", ex);
                 return;
             }
 
-            ScenarioContext.Current.Add("ShouldBeEquivalentTo_Exception", null);
+            ScenarioContext.Current.Add("exception", null);
         }
 
         [Then(@"no exception should be thrown")]
         public void ThenNoExceptionShouldBeThrown()
         {
-            var exception = ScenarioContext.Current["ShouldBeEquivalentTo_Exception"];
+            var exception = ScenarioContext.Current["exception"];
             Assert.That(exception, Is.Null);
         }
+
+        [Then(@"an AssertionException should be thrown")]
+        public void ThenAnAssertionExceptionShouldBeThrown()
+        {
+            var exception = ScenarioContext.Current["exception"];
+            Assert.AreEqual(exception.GetType(), typeof (AssertionException));
+        }
+
 
     }
 }

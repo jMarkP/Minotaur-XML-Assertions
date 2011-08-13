@@ -87,7 +87,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Item two"});
             table1.AddRow(new string[] {
                         "summary",
-                        "null",
+                        "3",
                         "Two items"});
 #line 7
  testRunner.Given("I have a reference XDocument with root \"root\" and elements:", ((string)(null)), table1);
@@ -106,7 +106,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Item two"});
             table2.AddRow(new string[] {
                         "summary",
-                        "null",
+                        "3",
                         "Two items"});
 #line 12
  testRunner.And("I have a test XDocument with root \"root\" and elements:", ((string)(null)), table2);
@@ -114,6 +114,59 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I assert the test XDocument should be equivalent to the reference XDocument");
 #line 18
  testRunner.Then("no exception should be thrown");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Comparing XDocuments with different content")]
+        public virtual void ComparingXDocumentsWithDifferentContent()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Comparing XDocuments with different content", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "element",
+                        "id",
+                        "value"});
+            table3.AddRow(new string[] {
+                        "item",
+                        "1",
+                        "Item one"});
+            table3.AddRow(new string[] {
+                        "item",
+                        "2",
+                        "Item two"});
+            table3.AddRow(new string[] {
+                        "summary",
+                        "3",
+                        "Two items"});
+#line 21
+ testRunner.Given("I have a reference XDocument with root \"root\" and elements:", ((string)(null)), table3);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "element",
+                        "id",
+                        "value"});
+            table4.AddRow(new string[] {
+                        "item",
+                        "1",
+                        "Item one"});
+            table4.AddRow(new string[] {
+                        "item",
+                        "2",
+                        "Item different!"});
+            table4.AddRow(new string[] {
+                        "summary",
+                        "3",
+                        "Two items"});
+#line 26
+ testRunner.And("I have a test XDocument with root \"root\" and elements:", ((string)(null)), table4);
+#line 31
+ testRunner.When("I assert the test XDocument should be equivalent to the reference XDocument");
+#line 32
+ testRunner.Then("an AssertionException should be thrown");
 #line hidden
             this.ScenarioCleanup();
         }
