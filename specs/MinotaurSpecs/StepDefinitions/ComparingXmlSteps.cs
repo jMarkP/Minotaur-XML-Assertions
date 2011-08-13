@@ -1,4 +1,7 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.Xml.Linq;
+using MinotaurLib;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace MinotaurSpecs.StepDefinitions
@@ -43,16 +46,27 @@ namespace MinotaurSpecs.StepDefinitions
             document.Add(root);
         }
 
-        [When(@"I assert the XDocument under test should be equivalent to the reference XDocument")]
-        public void WhenIAssertTheXDocumentUnderTestShouldBeEquivalentToTheReferenceXDocument()
+        [When(@"I assert the (.*) XDocument should be equivalent to the (.*) XDocument")]
+        public void WhenIAssertTheTestXDocumentShouldBeEquivalentToTheReferenceXDocument(XDocument actual, XDocument expected)
         {
-            ScenarioContext.Current.Pending();
+            try
+            {
+                actual.ShouldBeEquivalentTo(expected);
+            }
+            catch(Exception ex)
+            {
+                ScenarioContext.Current.Add("ShouldBeEquivalentTo_Exception", ex);
+                return;
+            }
+
+            ScenarioContext.Current.Add("ShouldBeEquivalentTo_Exception", null);
         }
 
         [Then(@"no exception should be thrown")]
         public void ThenNoExceptionShouldBeThrown()
         {
-            ScenarioContext.Current.Pending();
+            var exception = ScenarioContext.Current["ShouldBeEquivalentTo_Exception"];
+            Assert.That(exception, Is.Null);
         }
 
     }
