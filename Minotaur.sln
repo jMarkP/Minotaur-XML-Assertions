@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{6987BE58-AD49-4FC4-9656-3D480AB07909}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "specs", "specs", "{02E3588F-0215-4F18-B5F9-2EA85698AA53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinotaurSpecs", "specs\MinotaurSpecs\MinotaurSpecs.csproj", "{F8D27B97-97E7-4725-8283-7972DABC6D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinotaurLib", "lib\MinotaurLib\MinotaurLib.csproj", "{E8F3608B-2FF0-447F-B0AA-9508DDA3BABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8D27B97-97E7-4725-8283-7972DABC6D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D27B97-97E7-4725-8283-7972DABC6D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D27B97-97E7-4725-8283-7972DABC6D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D27B97-97E7-4725-8283-7972DABC6D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F3608B-2FF0-447F-B0AA-9508DDA3BABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F3608B-2FF0-447F-B0AA-9508DDA3BABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F3608B-2FF0-447F-B0AA-9508DDA3BABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F3608B-2FF0-447F-B0AA-9508DDA3BABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8F3608B-2FF0-447F-B0AA-9508DDA3BABC} = {6987BE58-AD49-4FC4-9656-3D480AB07909}
+		{F8D27B97-97E7-4725-8283-7972DABC6D11} = {02E3588F-0215-4F18-B5F9-2EA85698AA53}
+	EndGlobalSection
+EndGlobal
