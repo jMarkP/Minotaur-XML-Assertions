@@ -7,22 +7,18 @@ You're working on a project. You've got lots of XML flying around. You're a good
 
 Wouldn't it be better to be able to say
 
-    ```C#
-	// actualXml & expectedXml can be strings / XDocuments / XmlNodes...
-	actualXml.ShouldBeEquivalentTo(expectedXml)
-	```
+    // actualXml & expectedXml can be strings / XDocuments / XmlNodes...
+    actualXml.ShouldBeEquivalentTo(expectedXml)
 	
 Or,
 
-    ```C#
-	// Notice nice fluent XPath style syntax
+    // Notice nice fluent XPath style syntax
+
+    // Third paragraph should have 'quote' style
+    actualXml.x("document").x("para")[3].x("style").ShouldEqual("quote");
 	
-	// Third paragraph should have 'quote' style
-	actualXml.x("document").x("para")[3].x("style").ShouldEqual("quote");
-	
-	// There should be no 'ul' elements without 'li' children
-	actualXml.elements("ul").where("not(.//li)").ShouldBeEmpty();
-	```
+    // There should be no 'ul' elements without 'li' children
+    actualXml.elements("ul").where("not(.//li)").ShouldBeEmpty();
 	
 Huh?
 
